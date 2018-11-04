@@ -17,13 +17,14 @@ public:
     ll dot(Point &p)const { return x*p.x + y*p.y; }
     ll length2(){ return (sqr(x) + sqr(y)); }
     double length(){ return sqrt((double)length2()); }
-    int orientation (Point &p0, Point &p1);
+    ll distance2(Point &p){ return sqr(x-p.x) + sqr(y-p.y); }
+    int orientation (Point &p0, Point &p1) const ;
     int classify(Point &p0, Point &p1);
     //int classify(const Edge &e) const { return classify(e.org, e.dest); }
     double polarAngle();
 };
 
-int Point:: orientation (Point &p0, Point &p1){
+int Point:: orientation (Point &p0, Point &p1) const {
     Point p2 = *this;
     Point a = p1 - p0;
     Point b = p2 - p0;
